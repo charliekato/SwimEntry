@@ -25,7 +25,7 @@ Const HEADERROW As Integer = 1
 Const INDIVENTRYSHEET As String = "個人種目"
 Const RELAYENTRYSHEET As String = "リレー種目"
 Const SIGNATURE As String = "excelSWMSYSEntrySheet"
-Const MAXENTRY As Integer = 2
+Const MAXENTRY As Integer = 3
 
 Const DANTAICODE As String = "25"
 
@@ -550,12 +550,12 @@ Sub read_list_file_and_create_swtxt(init As Boolean)
     gakunenCol = column_number("学年", HEADERROW)
     styleCol(1) = column_number("種目1", HEADERROW)
     styleCol(2) = column_number("種目2", HEADERROW)
-'    styleCol(3) = column_number("種目3", HEADERROW)
+    styleCol(3) = column_number("種目3", HEADERROW)
     
 
     timeCol(1) = column_number("エントリータイム1", HEADERROW)
     timeCol(2) = column_number("エントリータイム2", HEADERROW)
-'    timeCol(3) = column_number("エントリータイム3", HEADERROW)
+    timeCol(3) = column_number("エントリータイム3", HEADERROW)
 
 
     teamNameCol = column_number("所属", HEADERROW)
@@ -725,7 +725,7 @@ Sub write_info(path As String, filename As String)
     Close #1
 End Sub
 Function data_found()
-    If Cells(3, 2).Value = "" Then
+    If Cells(2, 2).Value = "" Then
         data_found = False
     Else
         data_found = True
